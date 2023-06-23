@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="" lang="PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tenis Shop</title>
+<link href="estilos.css" rel="stylesheet" type="text/css">
+<style>
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+
+
+</head>
+<body>
+
+  <div id="LayoutDiv1">
+    <a href="index.html">
+      <img src="Imagens/logotipo.png" alt="Logotipo" class="logotipo" >
+    </a>
+  </div>
+  
+  
+<nav id="LayoutDiv2" style="z-index: 1;">
+   <ul>
+    <li>
+      <a href="index.html">Início</a>
+    </li>
+    <li class="dropdown">
+      <a href="loja.html" class="dropbtn">Loja</a>
+    </li>
+
+  </ul>
+</nav>
+
+
+
+
+
+
+
+<div>
+
+  <img src="Imagens/header1.jpg" style="width:100%" alt="Header1" id="imgbanner">
+
+</div>
+
+
+<br>
+
+
+
+
+<script> 
+var i = 0; var imagens = Array(); 
+
+imagens[0] = "Imagens/header1.jpg"; 
+imagens[1] = "Imagens/header2.jpg"; 
+imagens[2] = "Imagens/header3.jpg"; 
+
+function mudarSrc() 
+{
+document.getElementById("imgbanner").src = imagens[i]; 
+
+if(i < imagens.length - 1){
+  i++;
+}
+else{
+  i = 0; 
+}
+setTimeout("mudarSrc()",2000); 
+}
+window.onload=mudarSrc; 
+</script> 
+
+
+
+
+
+    <div id="LayoutDiv5">Categorias</div>
+
+<div id="LayoutDiv6">
+  <div class="produtos"><img src="Imagens/raquete1.jpg" alt="Raquetes">
+     <span class="categorias-titulo">
+     Raquete PRO
+     </span>
+  </div>
+     <div class="produtos"> <img src="Imagens/raquete3.jpg" alt="Mochilas">
+     <span class="categorias-titulo">
+     Raquete Criança
+     </span>
+     </div>
+  <div class="produtos"> <img src="Imagens/raquete4.jpg" alt="Bolas">
+     <span class="categorias-titulo">
+     Raquete Ultra
+     </span>
+    </div>
+</div>
+
+
+
+<div id="LayoutDiv7">
+<div class="titulo_cada">
+Mais Vendidos
+</div>
+
+ <div class="produtos2_1">
+   <img src="Imagens/raquete1.jpg" alt="RAQUETE DE TÉNIS 130 CRIANÇA 25 AMARELO   ">
+RAQUETE DE TÉNIS 130 CRIANÇA 25" AMARELO
+<div>
+<span class="preco">
+92,40€
+</span>
+</div>
+  </div>
+  <div class="produtos2">
+   <img src="Imagens/raquete2.jpg" alt="Raquete de ténis adulto - ARTENGO TR990 POWER PRO Vermelho / Preto 300g   ">
+ Raquete de ténis adulto - ARTENGO TR990 POWER PRO Vermelho / Preto 300g
+<div>
+<span class="preco">
+74,90€
+</span>
+</div>
+  </div>
+  
+<div class="produtos2">
+   <img src="Imagens/raquete3.jpg" alt="RAQUETE DE TÉNIS ADULTO - BABOLAT PURE AERO CINZA AMARELO 300g   ">
+ RAQUETE DE TÉNIS ADULTO - BABOLAT PURE AERO CINZA AMARELO 300g
+<div>
+<span class="preco">
+83,60€
+</span>
+</div>
+
+  </div>
+  </div>
+  
+
+
+
+
+
+
+
+<div id="LayoutDiv8">
+<div class="titulo_cada">
+Sobre nós
+</div>
+<div style="width: 40%;margin-top: 5%;margin-left: 7%;float: left">
+<p style="text-align: justify;">A nossa loja de tenis é o lugar ideal para si.</p>
+<p style="text-align: justify;">
+  Bem-vindo à nossa loja de ténis, o lugar perfeito para os amantes do esporte e entusiastas da moda esportiva. Nossa loja é um paraíso para os aficionados por ténis, oferecendo uma ampla seleção de calçados esportivos de alta qualidade e estilo.</p>
+</div>
+<div style="width: 40%;float: right;margin-top: 2%;margin-right: 6%">
+  <img src="Imagens/loja.jpg" alt="Sobre Nós" class="sobrenos">
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="rodapé2">
+
+    <div class="flex-container">
+      <div>
+        <h2 style="font-weight: normal;text-align: left;">Sobre nós</h2>
+          <h3 style="text-align: justify;font-weight: normal">  Bem-vindo à nossa loja de ténis, o lugar perfeito para os amantes do esporte e entusiastas da moda esportiva. Nossa loja é um paraíso para os aficionados por ténis, oferecendo uma ampla seleção de calçados esportivos de alta qualidade e estilo.</p>
+          </h3>
+      </div>
+
+      <div>
+        <h2 style="font-weight: normal;text-align: center;">ESEV</h2>
+          <img src="Imagens/esev.png" style="width: 30%;margin-top: 2%;" alt="ISMT">
+      </div>  
+
+    </div>
+
+  <div style="border-top: 1px solid white">
+    <p class="direito">© 2023 Tenis Shop</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

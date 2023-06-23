@@ -1,0 +1,29 @@
+{
+  "name": "ficha-5",
+  "version": "1.0.0",
+  "description": "resolução ficha 5",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "xaviern",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "axios": "^0.24.0",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "localstorage-polyfill": "^1.0.1",
+    "mysql-client": "^0.3.0",
+    "mysql2": "^2.3.3"
+  }
+}

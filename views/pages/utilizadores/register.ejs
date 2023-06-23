@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Ficha 3</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+
+  </body>
+
+<main>
+
+    <%- include('../../partials/menu');-%>
+  
+  
+  
+    <main id="site-main">
+  
+  
+      <div class="container">
+    
+  
+          <form action="/registar" method="POST">
+              <table class="table">
+                  <tbody>
+      
+                    <tr>
+                      <th scope="col">Registo</th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Nome* <input type="text" name="nome" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Username* <input type="text" name="username" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Password* <input type="password" name="password" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Cargo* <input type="text" name="cargo" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Morada* <input type="text" name="morada" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col">Contacto* <input type="text" name="contato" required></th>
+                    </tr>
+                    <tr>
+                      <th scope="col"><input type="submit" value="Criar" required></th>
+                      </tr>
+                      <% if(msg == 1){ %>
+                        <tr>
+                          <p>Username existente.</p>
+                        </tr>
+                        <% } %>
+        
+                    </tbody>
+        
+              </table>
+          </form>
+      </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

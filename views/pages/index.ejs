@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Projeto prático</title>
+  </head>
+  <body>
+
+    <%- include('../partials/header');-%>
+
+  </body>
+
+<main>
+  <%- include('../partials/menu');-%>
+
+
+
+  <main id="site-main">
+
+
+    <div class="container">
+  
+
+        <form action="/login" method="POST">
+            <table class="table">
+                <tbody>
+    
+                  <tr>
+                    <th scope="col">Login</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Utilizador <input type="text" name="username" required></th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Password <input type="password" name="password" required></th>
+                  </tr>
+                  <tr>
+                    <th scope="col"><input type="submit" value="Entrar"></th>
+                    </tr>
+                    <tr>
+                    <th scope="col"><a href="/registo">Criar conta</a></th>
+                  </tr>
+                  <% if(msg == 2){%>
+                    <tr>
+                      <p>Utilizador registado com sucesso.</p>
+                    </tr>
+                    <% }else if(msg == 3){%>
+                      <tr>
+                        <p>Utilizador ou password errada.</p>
+                      </tr>
+                      <% } %>
+                  </tbody>
+      
+            </table>
+        </form>
+    </div>
+  </main>
+
+
+</main>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

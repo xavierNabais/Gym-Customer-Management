@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Projeto prático</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+
+
+<main>
+
+  <%- include('../../partials/menu');-%>
+
+<main id="site-main">
+
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <a href="/planos/add/<%-dados[0].id_plano %>_<%-user_id%>" class="border-shadow">
+        <span class="text-gradient">Novo Registo <i class="fas fa-user"></i></span>
+      </a>
+    </div>
+
+      <!-- form handling -->
+      <form action="/" method="POST">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Exercício</th>
+                  <th scope="col">Equipamento</th>
+                  <th scope="col">Repetições</th>
+                  <th scope="col">Carga</th>
+                  <th scope="col">Intervalo</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <% dados.forEach((dados) => { %>
+                  <tr>
+                    <td><%= dados.exerc_nome %></td>
+                    <td><%= dados.equip_nome %></td>
+                    <td><%= dados.repeticoes %></td>
+                    <td><%= dados.carga %></td>
+                    <td><%= dados.intervalo %></td>
+                    <td class="text-center">
+                      <a
+                        class="edit"
+                        title=""
+                        data-toggle="tooltip"
+                        data-original-title="Editar"
+                        href="http://localhost:5000/planos/editar/<%- dados.id_plano %>_<%- dados.id_equipamento %>_<%- dados.id_exercicio %>"
+                        ><i class="fas fa-pencil-alt" style="color: black"></i></a>
+                        <a
+                        class="delete"
+                        title=""
+                        data-toggle="tooltip"
+                        data-original-title="Apagar"
+                        href="http://localhost:5000/planos/apagar/<%- dados.id_plano %>_<%- dados.id_equipamento %>_<%- dados.id_utilizador %>_<%- dados.id_exercicio %>"
+                        ><i class="fas fa-trash-alt" style="color: black"></i
+                      ></a>
+                    </td>
+                    </td>
+                  </tr>
+                 <% }); %>
+              </tbody>
+    
+          </table>
+      </form>
+  </div>
+</main>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

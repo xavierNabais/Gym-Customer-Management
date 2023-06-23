@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Projeto prático</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+
+
+<main>
+
+  <%- include('../../partials/menu');-%>
+
+<main id="site-main">
+
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+      <a href="javascript:history.back()" class="border-shadow">
+        <span class="text-gradient"><i class="fas fa-long-arrow-alt-left"></i> Voltar </i></span>
+    </a>
+    </div>
+
+      <!-- form handling -->
+      <form action="/planos/update/<%= id_equipamento %>_<%= id_exercicio %>_<%= cliente_id %>" method="POST">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Exercício</th>
+                  <th scope="col">Equipamento</th>
+                  <th scope="col">Repetições</th>
+                  <th scope="col">Carga</th>
+                  <th scope="col">Intervalo</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr>
+                  <td><input type="text" name="exercicio" value='<%= dados[0].exerc_nome %>' readonly></td>
+                  <td><input type="text" name="equipamento" value='<%= dados[0].equip_nome%>' readonly></td>
+                  <td><input type="text" name="repeticoes" value='<%= dados[0].repeticoes %>' ></td>
+                  <td><input type="text" name="carga" value='<%= dados[0].carga %>' ></td>
+                  <td><input type="text" name="intervalo" value='<%= dados[0].intervalo %>' ></td>
+                  <td style="text-align: center;"><input type="submit" value="Submeter"></td>
+                </tr>              </tbody>
+    
+          </table>
+      </form>
+  </div>
+</main>
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

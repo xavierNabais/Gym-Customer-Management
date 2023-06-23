@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Projeto prático</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+
+
+
+<main>
+  <%- include('../../partials/menu');-%>
+
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+          <a href="javascript:history.back()" class="border-shadow">
+            <span class="text-gradient"><i class="fas fa-long-arrow-alt-left"></i> Voltar </i></span>
+        </a>
+        </div>
+
+        <form action="/planos/create" method="POST" id="uploadForm">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Plano de treino</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Data de Início</th>
+                    <th scope="col">Data de Fim</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+    
+                  <tr>
+                    <th scope="row"><input type="text" name="nome_plano" ></th>
+                    <td>
+                      <select name="cliente" id="cliente" form="uploadForm">
+                      <option value="Escolha um cliente" disabled selected>Escolha um cliente:</option>
+                      <% dados.forEach((dados) => { %>
+                      <option value="<%= dados.utilizador_id %>_<%= dados.nome %>"><%= dados.utilizador_id %>_<%= dados.nome %></option>
+                      <% }); %>
+                    </td>
+                    <td><input type="date" name="data_inicio" ></td>
+                    <td><input type="date" name="data_fim" ></td>
+                    <td style="text-align: center;"><input type="submit" value="Criar"></td>
+                  </tr>
+                </tbody>
+      
+      
+            </table>
+        </form>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

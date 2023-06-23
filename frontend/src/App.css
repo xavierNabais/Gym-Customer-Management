@@ -1,0 +1,108 @@
+html{
+  height: 100%;
+  
+}
+
+body{
+  height: 100%;
+  background-color:#f3f3f3!important;
+}
+
+.navbar{
+  box-shadow: 0 5px 2px -2px rgba(184, 184, 184, 0.2);
+}
+
+.shadow{
+  box-shadow: 0 5px 2px -2px rgba(184, 184, 184, 0.2)!important;
+}
+
+.rounded{
+  background-color: white;
+}
+
+.btn a{
+  color:white!important;
+  text-decoration: none;
+}
+
+.btn{
+  margin-right:1%;
+}
+
+.btn-primary{
+  background-color: black!important;
+}
+
+.thead-dark {
+    color: #fff;
+    background-color: #292621;
+    border-color: #32383e;
+}
+
+table tr, th{
+    text-align: center;
+}
+
+.p-4{
+  min-height:500px;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+  }
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.main-content{
+  padding-top:8%!important;
+}
+
+.border-0:hover{
+  transition: box-shadow .5s;
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.rounded{
+    margin-top:2%;
+}
+
+.navbar {
+    margin-bottom: 20px; /* Espaçamento inferior */
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 10px 15px; /* Espaçamento interno */
+  }
+  
+  .collapse{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1320px;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: black; /* Cor do texto dos links */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: black; /* Cor do texto dos links ao passar o mouse */
+  }
+  
+  .navbar-dark .navbar-nav .active > .nav-link,
+  .navbar-dark .navbar-nav .nav-link.active {
+    font-weight: bold; /* Estilo do link ativo */
+  }
+  
+  
+  @media only screen and (max-width: 600px) {
+
+.row{
+  margin-left:5%!important;
+}
+.text-ended{
+  text-align: left!important;
+}
+  }

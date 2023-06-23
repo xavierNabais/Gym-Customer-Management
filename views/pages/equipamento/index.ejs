@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Projeto prático</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+  <main>
+    <%- include('../../partials/menu');-%>
+  
+    <main id="site-main">
+      <div class="container">
+          <div class="box-nav d-flex justify-between">
+              <a href="/equipamento/form" class="border-shadow">
+                  <span class="text-gradient">Novo Registo <i class="fas fa-user"></i></span>
+              </a>
+          </div>
+  
+          <!-- form handling -->
+          <form action="/" method="POST">
+              <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Músculo</th>
+                      <th scope="col" class="text-center">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+      
+                    <% dados.forEach((dados) => { %>
+                      <tr>
+                        <th scope="row"><%= dados.id_equipamento %></th>
+                        <td><%= dados.nome %></td>
+                        <td><%= dados.estado %></td>
+                        <td><%= dados.musculo %></td>
+                        <td class="text-center">
+                          <a
+                            class="edit"
+                            title=""
+                            data-toggle="tooltip"
+                            data-original-title="Editar"
+                            href="http://localhost:5000/equipamento/editar/<%- dados.id_equipamento %>"
+                            ><i class="fas fa-pencil-alt" style="color: black"></i></a
+                          >&nbsp;&nbsp;
+                          <a
+                            class="delete"
+                            title=""
+                            data-toggle="tooltip"
+                            data-original-title="Apagar"
+                            href="http://localhost:5000/equipamento/apagar/<%- dados.id_equipamento %>"
+                            ><i class="fas fa-trash-alt" style="color: black"></i
+                          ></a>
+                        </td>
+                      </tr>
+                     <% }); %>
+                  </tbody>
+        
+              </table>
+          </form>
+      </div>
+  </main>
+  
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

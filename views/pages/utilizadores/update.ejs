@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Ficha 3</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+
+
+
+        <%- include('../../partials/menu');-%>
+
+
+        <main id="site-main">
+          <div class="container">
+              <div class="box-nav d-flex justify-between">
+                  <a href="javascript:history.back()" class="border-shadow">
+                      <span class="text-gradient"><i class="fas fa-long-arrow-alt-left"></i> Voltar </i></span>
+                  </a>
+              </div>
+
+              <form action="/update" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col">Morada</th>
+                  <th scope="col">Contacto</th>
+                  <th scope="col" class="text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+      
+                  <tr>
+                    <th scope="row"><input type="text" name="numero" value="<%= dados[0].utilizador_id %>" readonly></th>
+                    <td><input type="text" name="nome" value='<%= dados[0].nome %>' ></td>
+                    <td><input type="text" name="username" value='<%= dados[0].username %>' ></td>
+                    <td><input type="text" name="password" value='<%= dados[0].password %>' ></td>
+                    <td><input type="text" name="cargo" value='<%= dados[0].cargo %>' ></td>
+                    <td><input type="text" name="morada" value='<%= dados[0].morada %>' ></td>
+                    <td><input type="text" name="contato" value='<%= dados[0].contato %>' ></td>
+                    <td style="text-align: center;"><input type="submit" value="Submeter"></td>
+                  </tr>
+              </tbody>
+            </table>
+          </form>
+      </div>
+  </main>
+
+ 
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>

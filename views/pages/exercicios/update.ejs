@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+  <meta charset="utf-8">
+  <title>Ficha 3</title>
+  </head>
+  <body>
+
+    <%- include('../../partials/header');-%>
+    
+  </body>
+
+
+
+<main>
+  <%- include('../../partials/menu');-%>
+
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/exercicios/create" class="border-shadow">
+                <span class="text-gradient">Novo Registo <i class="fas fa-user"></i></span>
+            </a>
+        </div>
+
+        <form action="/exercicios/update" method="POST" id="uploadForm">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Equipamento</th>
+                    <th scope="col">Músculo</th>
+                    <th scope="col" class="text-center">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+    
+                  <tr>
+                    <th scope="row"><input type="text" name="numero" value="<%= dados[0].id_exercicio %>" readonly></th>
+                    <td><input type="text" name="nome" value='<%= dados[0].nome %>' ></td>
+                    <td>
+                      <select name="equipamento" id="equipamento" form="uploadForm">
+                      <option value="Escolha um cliente" disabled selected>Escolha um equipamento:</option>
+                      <% equipamento.forEach((equipamento) => { %>
+                      <option value="<%= equipamento.nome %>"><%= equipamento.nome %></option>
+                      <% }); %>
+                    </td>
+                    <td><input type="text" name="musculo" value='<%= dados[0].musculo %>' ></td>
+                    <td style="text-align: center;"><input type="submit" value="Submeter"></td>
+                  </tr>
+                  </tbody>
+      
+      
+            </table>
+        </form>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+</body>
+
+</html>
