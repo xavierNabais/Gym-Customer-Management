@@ -1,1 +1,1 @@
-"# p3_project" 
+Este projeto tem como objetivo dar continuidade ao trabalho desenvolvido no semestre anterior, no qual foi criada uma aplicação com a utilização da framework Node.js. Neste projeto, além da implementação da framework React.js no frontend, houve a necessidade de alterar o backend em Node.js para que passasse a funcionar como uma API que utiliza a arquitetura REST.
