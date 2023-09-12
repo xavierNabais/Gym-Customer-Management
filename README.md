@@ -1,1 +1,1 @@
-Este projeto tem como objetivo dar continuidade ao trabalho desenvolvido no semestre anterior, no qual foi criada uma aplicação com a utilização da framework Node.js. Neste projeto, além da implementação da framework React.js no frontend, houve a necessidade de alterar o backend em Node.js para que passasse a funcionar como uma API que utiliza a arquitetura REST.
+Este projeto consiste numa aplicação CRUD de gestão de clientes de um ginásio desenvolvido em REACT e NODE sendo que o backend funciona como uma API que utiliza a arquitetura REST.
