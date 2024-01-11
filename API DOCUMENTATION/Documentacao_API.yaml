@@ -1,0 +1,605 @@
+openapi: 3.0.3
+info:
+  title: API Projeto Prático
+  description: "Definição de uma API em OpenAPI 3 para o projeto desenvolvido em aula da UC de Programação III do curso de Multimédia do ISMT."
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: ismt@ismt.pt
+  license:
+    name: Apache 2.0
+    url: http://localhost:5000
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:5000
+tags:
+  - name: Authentication
+    description: Dados referentes à autenticação
+  - name: Utilizadores
+    description: Dados referentes aos utilizadores
+  - name: Equipamentos
+    description: Dados referentes aos equipamentos
+  - name: Exercícios
+    description: Dados referentes aos exercícios
+  - name: Planos
+    description: Dados referentes aos planos de treino
+paths:
+  /signup:
+    post:
+      tags:
+        - Authentication
+      summary: Registo de um novo utilizador
+      requestBody:
+        description: Dados do utilizador
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                nome_de_utilizador:
+                  type: string
+                senha:
+                  type: string
+                morada:
+                  type: string
+                contacto:
+                  type: string
+        required: true
+      responses:
+        '200':
+          description: Utilizador registado com sucesso
+        '400':
+          description: Erro na execução do registo do novo utilizador
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /login:
+    post:
+      tags:
+        - Authentication
+      summary: Autenticação do utilizador
+      requestBody:
+        description: Dados de autenticação do utilizador
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Autenticação com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Auth'
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Erro na autenticação do utilizador
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /utilizadores:
+    get:
+      tags:
+        - Utilizadores
+      summary: Obter todos os utilizadores
+      responses:
+        '200':
+          description: Lista de todos os utilizadores
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Utilizadores
+      summary: Atualizar os dados de um utilizador
+      requestBody:
+        description: Novos dados de um utilizador
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utilizadores'
+        required: true
+      responses:
+        '200':
+          description: Utilizador atualizado com sucesso
+        '400':
+          description: Erro na atualização dos dados do utilizador
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Utilizador não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Utilizadores
+      summary: Criar um novo utilizador
+      requestBody:
+        description: Dados do utilizador a ser criado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UtilizadoresAdd'
+        required: true
+      responses:
+        '200':
+          description: Utilizador criado com sucesso
+        '400':
+          description: Erro na criação do utilizador
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /utilizadores/{id}:
+    delete:
+      tags:
+        - Utilizadores
+      summary: Remover um utilizador
+      parameters:
+        - name: id
+          in: path
+          description: ID do utilizador a ser removido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Utilizador removido com sucesso
+        '400':
+          description: Erro na remoção do utilizador
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Utilizador não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /equipamento:
+    get:
+      tags:
+        - Equipamentos
+      summary: Obter todos os equipamentos
+      responses:
+        '200':
+          description: Lista de todos os equipamentos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipamento'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Equipamentos
+      summary: Atualizar os dados de um equipamento
+      requestBody:
+        description: Novos dados de um equipamento
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Equipamento'
+        required: true
+      responses:
+        '200':
+          description: Equipamento atualizado com sucesso
+        '400':
+          description: Erro na atualização dos dados do equipamento
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Equipamento não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Equipamentos
+      summary: Criar um novo equipamento
+      requestBody:
+        description: Dados do equipamento a ser criado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EquipamentoAdd'
+        required: true
+      responses:
+        '200':
+          description: Equipamento criado com sucesso
+        '400':
+          description: Erro na criação do equipamento
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /equipamento/{id}:
+    delete:
+      tags:
+        - Equipamentos
+      summary: Remover um equipamento
+      parameters:
+        - name: id
+          in: path
+          description: ID do equipamento a ser removido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Equipamento removido com sucesso
+        '400':
+          description: Erro na remoção do equipamento
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Equipamento não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /exercicios:
+    get:
+      tags:
+        - Exercícios
+      summary: Obter todos os exercícios
+      responses:
+        '200':
+          description: Lista de todos os exercícios
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+        - Exercícios
+      summary: Atualizar os dados de um exercício
+      requestBody:
+        description: Novos dados de um exercício
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exercicios'
+        required: true
+      responses:
+        '200':
+          description: Exercício atualizado com sucesso
+        '400':
+          description: Erro na atualização dos dados do exercício
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Exercício não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Exercícios
+      summary: Criar um novo exercício
+      requestBody:
+        description: Dados do exercício a ser criado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExerciciosAdd'
+        required: true
+      responses:
+        '200':
+          description: Exercício criado com sucesso
+        '400':
+          description: Erro na criação do exercício
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /exercicios/{id}:
+    delete:
+      tags:
+        - Exercícios
+      summary: Remover um exercício
+      parameters:
+        - name: id
+          in: path
+          description: ID do exercício a ser removido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Exercício removido com sucesso
+        '400':
+          description: Erro na remoção do exercício
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Exercício não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /planos:
+    get:
+      tags:
+        - Planos
+      summary: Obter todos os planos
+      responses:
+        '200':
+          description: Lista de todos os planos
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Planos
+      summary: Criar um novo plano
+      requestBody:
+        description: Dados do plano a ser criado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Planos'
+        required: true
+      responses:
+        '200':
+          description: Plano criado com sucesso
+        '400':
+          description: Erro na criação do plano
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /planos/create/dentroplano/{id}:
+    post:
+      tags:
+        - Planos
+      summary: Adicionar exercício a um plano
+      description: Cria um novo exercício dentro de um plano especificado pelo ID do plano.
+      parameters:
+        - name: id
+          in: path
+          description: ID do plano _  ID do utilizador
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Dados do exercício a ser adicionado
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Planos_Dentro'
+        required: true
+      responses:
+        '200':
+          description: Exercício adicionado com sucesso
+        '400':
+          description: Erro na adição do exercício
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /planos/{id}:
+    put:
+      tags:
+        - Planos
+      summary: Atualizar os dados de um plano
+      parameters:
+        - name: id
+          in: path
+          description: ID do plano a ser atualizado
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Novos dados de um plano
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Planos'
+        required: true
+      responses:
+        '200':
+          description: Plano atualizado com sucesso
+        '400':
+          description: Erro na atualização dos dados do plano
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Plano não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+    delete:
+      tags:
+        - Planos
+      summary: Remover um plano
+      parameters:
+        - name: id
+          in: path
+          description: ID do plano a ser removido
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Plano removido com sucesso
+        '400':
+          description: Erro na remoção do plano
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          description: Plano não encontrado
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /planos/visualizar/{id}:
+    get:
+      tags:
+        - Planos
+      summary: Visualizar os exercícios dentro de um plano de treino
+      parameters:
+        - name: id
+          in: path
+          description: ID do plano
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de todos os planos
+        '500':
+          $ref: '#/components/responses/ServerError'
+          
+  /planosDentro/{id}:
+    delete:
+      tags:
+        - Planos
+      summary: Remover exercício de um plano de treino
+      description: Remove um exercício de um plano especificado pelo ID do exercício.
+      parameters:
+        - name: id
+          in: path
+          description: ID do exercício no plano de treino (id_line)
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Exercício removido do plano de treino com sucesso
+        '400':
+          description: Erro na remoção do exercício do plano de treino
+        '500':
+          $ref: '#/components/responses/ServerError'
+       
+      
+components:
+  responses:
+    UnauthorizedError:
+      description: Acesso não autorizado
+    ServerError:
+      description: Erro interno do servidor
+  schemas:
+    Auth:
+      type: object
+      properties:
+        token:
+          type: string
+    Utilizadores:
+      type: object
+      properties:
+        numero:
+          type: integer
+          description: Id do utilizador
+        nome:
+          type: string
+          description: Nome do utilizador
+        username:
+          type: string
+          description: Username do utilizador
+        password:
+          type: string
+          description: Password do utilizador
+        cargo:
+          type: string
+          description: Cargo do utilizador
+        contato:
+          type: string
+          description: Contacto do utilizador
+        morada:
+          type: string
+          description: Morada do utilizador
+    UtilizadoresAdd:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do utilizador
+        username:
+          type: string
+          description: Username do utilizador
+        password:
+          type: string
+          description: Password do utilizador
+        cargo:
+          type: string
+          description: Cargo do utilizador
+        contato:
+          type: string
+          description: Contacto do utilizador
+        morada:
+          type: string
+          description: Morada do utilizador
+    Equipamento:
+      type: object
+      properties:
+        numero:
+          type: integer
+          description: ID do equipamento
+        nome:
+          type: string
+          description: Nome do equipamento
+        estado:
+          type: string
+          description: Estado do equipamento (0 = indisponível / 1 = disponível)
+        musculo:
+          type: string
+          description: Músculo a trabalhar
+    EquipamentoAdd:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do equipamento
+        estado:
+          type: string
+          description: Estado do equipamento (0 = indisponível / 1 = disponível)
+        musculo:
+          type: string
+          description: Músculo a trabalhar
+    Exercicios:
+      type: object
+      properties:
+        numero:
+          type: integer
+          description: ID do exercício
+        nome:
+          type: string
+          description: Nome do exercício
+        equipamento:
+          type: string
+          description: Nome do equipamento
+        musculo:
+          type: string
+          description: Músculo a trabalhar
+    ExerciciosAdd:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do exercício
+        equipamento:
+          type: string
+          description: Nome do equipamento
+        musculo:
+          type: string
+          description: Músculo a trabalhar
+    Planos:
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do plano de treino
+        cliente:
+          type: string
+          description: Nome do cliente
+        datai:
+          type: number
+          description: Data de início do plano de treino
+        dataf:
+          type: number
+          description: Data de fim do plano de treino
+    Planos_Dentro:
+      type: object
+      properties:
+        equipamento:
+          type: integer
+          description: ID do equipamento
+        exercicio:
+          type: integer
+          description: ID do exercicio
+        repeticoes:
+          type: number
+          description: Número de repetições
+        carga:
+          type: number
+          description: Carga em kgs a utilizar
+        intervalo:
+          type: number
+          description: Intervalo de tempo de descanso
