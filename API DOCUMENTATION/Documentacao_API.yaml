@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: API Projeto Prático
-  description: "Definição de uma API em OpenAPI 3 para o projeto desenvolvido em aula da UC de Programação III do curso de Multimédia do ISMT."
+  title: API Gestão de Clientes
+  description: "Definição de uma API em OpenAPI 3 para o projeto de aprendizagem."
   termsOfService: http://swagger.io/terms/
   contact:
-    email: ismt@ismt.pt
+    email: email@email.com
   license:
     name: Apache 2.0
     url: http://localhost:5000
